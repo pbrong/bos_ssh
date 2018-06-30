@@ -1,2 +1,6 @@
 # bos_ssh
-这是基于ssh开发的、maven管理的物流bos系统的一部分，bos-parent所属，具体的资料和maven仓库可以找我要，我的qq1378789620。数据库名和数据库用户根据自己的情况修改即可。
+	<b>后台技术</b>：spring，hibernate，struts2，maven等<br>
+	<b>前台技术</b>：js，jq，html，easyui，ztree等<br>
+
+	相关记录：<a 	href="https://blog.csdn.net/pbrlovejava/article/category/7757281">BOS开发笔记</a>
+	
