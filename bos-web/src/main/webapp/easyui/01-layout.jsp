@@ -13,10 +13,15 @@
 </head>
 <body class="easyui-layout">
 	<!-- 使用div元素描述每个区域 -->
-	<div title="XXX管理系统" style="height: 100px" data-options="region:'north'">北部区域</div>
+	<!-- <div title="XXX管理系统" style="height: 100px" data-options="region:'north'">北部区域</div>
 	<div title="系统菜单" style="width: 200px" data-options="region:'west'">西部区域</div>
 	<div data-options="region:'center'">中心区域</div>
 	<div style="width: 100px" data-options="region:'east'">东部区域</div>
-	<div style="height: 50px" data-options="region:'south'">南部区域</div>
+	<div style="height: 50px" data-options="region:'south'">南部区域</div> -->
+	<div data-options="regin:'north'">北部</div>
+	<div data-options="regin:'south'">南部</div>
+	<div data-options="regin:'east'">东部</div>
+	<div data-options="regin:'west'">西部</div>    
+	<div data-options="region:'center'">中心区域</div>           
 </body>
 </html>

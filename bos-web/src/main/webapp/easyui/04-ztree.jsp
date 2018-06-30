@@ -9,7 +9,8 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/js/easyui/themes/icon.css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/easyui/jquery.easyui.min.js"></script>
-
+<link rel="stylesheet" href="${pageContext.request.contextPath }/js/ztree/zTreeStyle.css" type="text/css">	
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/ztr	ee/jquery.ztree.all-3.5.js"></script>
 </head>
 <body class="easyui-layout">
 	<!-- 使用div元素描述每个区域 -->
@@ -47,7 +48,69 @@
 					
 				</script>
 			</div>
-			<div title="面板二">2222</div>
+			<div title="面板二">
+				<!-- 展示ztree效果 -->
+				<ul id="ztree1" class="ztree"></ul>
+				<script type="text/javascript">
+					$(function(){
+						//页面加载完成后动态加载
+						var setting = {
+								data: {
+									simpleData: {
+										enable: true,
+									},//添加回调函数
+								},
+								callback:{
+									//绑定点击事件
+									onClick:function(event,treeId,treeNode){
+										//alert(treeNode.name);
+										if(treeNode.page != undefined){//不属于根节点
+											//没有打开该选项卡的情况下
+											if(!$("#mytabs").tabs("exists",treeNode.name)){
+												//动态添加选项卡
+												$("#mytabs").tabs("add",
+												{
+													title:treeNode.name,
+													iconCls:'icon-edit',
+													closable:true,
+													content:'<iframe height="100%" width="100%" src='+treeNode.page+'></iframe>'
+												});
+											}else{
+												//已存在，选中即可
+												$("#mytabs").tabs("select",treeNode.name);
+											}
+											
+											
+										}
+										
+										
+									}
+								}
+						};//配置信息
+						
+						//构造节点数据
+						var zNodes = [
+						              {"id":"1","pId":"0","name":"节点一"},
+						              {"id":"2","pId":"1","name":"节点二"},
+						              {"id":"3","pId":"1","name":"节点三"}
+						              ];
+						
+						//发送ajax请求获得json数据
+						var url = "${pageContext.request.contextPath}/json/menu.json";
+						$.post(
+						url,
+						function(data){
+							//alert();
+							//调用API初始化ztree
+							$.fn.zTree.init($("#ztree1"), setting, data);
+						},
+						"json"
+						);
+						
+					});
+					
+				</script>
+			</div>
 			<div title="面板三">3333</div>
 			
 		</div>
