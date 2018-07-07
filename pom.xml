@@ -203,7 +203,7 @@
 		          <url>http://localhost:8080/manager/text</url>
 		          <server>admin</server>
 		          <username>tomcat</username>
-		          <password>tomcat</password>
+		          <password>tomcat</password>  
 		        </configuration>
 		      </plugin>
 	
@@ -218,8 +218,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 			<!-- 引入tomcat插件 -->
