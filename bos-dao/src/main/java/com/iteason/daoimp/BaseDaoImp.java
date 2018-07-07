@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.apache.cxf.service.invoker.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -17,7 +20,13 @@ import net.sf.ehcache.search.expression.Criteria;
  * @param <T>
  */
 public class BaseDaoImp<T> extends HibernateDaoSupport implements IBaseDao {
-
+	
+	
+	@Resource
+	public void setMySessionFactory(SessionFactory sessionFactory){
+		super.setSessionFactory((org.hibernate.SessionFactory) sessionFactory);
+	}
+	
 	private Class clazz;//用于接受运行期泛型类型
 	
 	public BaseDaoImp(){

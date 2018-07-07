@@ -39,7 +39,7 @@
 		<!-- 注入hibernate的映射文件 -->
 		<property name="mappingLocations">
 			<list>
-				<value>classpath:com/iteason/bos/domain/*.xml</value>
+				<value>classpath:com/iteason/domain/*.xml</value>
 			</list>
 		</property>
 	</bean>

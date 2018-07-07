@@ -12,5 +12,9 @@
 		<action name="page_*_*">
 			<result type="dispatcher">/WEB-INF/pages/{1}/{2}.jsp</result>
 		</action>
+		
+		<action name="UserAction_*"  class="userAction" method="{1}">
+			<result name="login">/login.jsp</result>
+		</action>
 	</package>
 </struts>

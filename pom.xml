@@ -190,8 +190,24 @@
 	</dependencies>
 
 	<build>
-		<!-- 插件 -->
+	<!-- 热部署插件 -->
 		<plugins>
+				  <!-- apache官方tomcat插件,支持deploy -->
+		      <plugin>
+		        <groupId>org.apache.tomcat.maven</groupId>
+		        <artifactId>tomcat7-maven-plugin</artifactId>
+		        <version>2.2</version>
+		        <configuration>
+	        	  <path>/bos</path>
+				  <port>8080</port>
+		          <url>http://localhost:8080/manager/text</url>
+		          <server>admin</server>
+		          <username>tomcat</username>
+		          <password>tomcat</password>
+		        </configuration>
+		      </plugin>
+	
+	
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -207,7 +223,7 @@
 				</configuration>
 			</plugin>
 			<!-- 引入tomcat插件 -->
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
@@ -215,7 +231,7 @@
 					<path>/bos</path>
 					<port>8080</port>
 				</configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 		<resources>
             <resource>
