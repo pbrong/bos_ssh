@@ -11,7 +11,31 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/easyui/jquery.easyui.min.js"></script>
 </head>
 <body class="easyui-layout" style="height:600px;width:1050px;margin:auto">
-		<div data-options="region:'north'"  style="height:50px"><h2>博客管理系统</h1></div>
+		<div data-options="region:'north'" style="background-image:url(${pageContext.request.contextPath}/images/header_bg.png);height:120px;">
+			<a  href="#" class="easyui-menubutton" data-options="menu:'#mm1',iconCls:'icon-edit'">Edit</a>
+			<div id="mm1" style="width:150px;">
+		<div data-options="iconCls:'icon-undo'">Undo</div>
+		<div data-options="iconCls:'icon-redo'">Redo</div>
+		<div class="menu-sep"></div>
+		<div>Cut</div>
+		<div>Copy</div>
+		<div>Paste</div>
+		<div class="menu-sep"></div>
+		<div>
+			<span>Toolbar</span>
+			<div>
+				<div>Address</div>
+				<div>Link</div>
+				<div>Navigation Toolbar</div>
+				<div>Bookmark Toolbar</div>
+				<div class="menu-sep"></div>
+				<div>New Toolbar...</div>
+			</div>
+		</div>
+		<div data-options="iconCls:'icon-remove'">Delete</div>
+		<div>Select All</div>
+	</div>
+		</div>
 		<div data-options="region:'south'" style="width:100px;">...</div>
 		<div data-options="region:'west',iconCls:'icon-edit'" title="操作栏" style="width:150px;">
 			<div class="easyui-accordion" style="height:500px">
@@ -34,6 +58,18 @@
 								}
 								
 							});
+							
+							//定时器，提示右下角的提示框
+							setTimeout(function(){
+								//alert();
+								$.messager.show({
+									title:'提示',
+									msg:'欢迎您，管理员',
+									showType:'slide',
+									
+								});
+									
+							}, 3000);
 						});
 					</script>
 				

@@ -22,5 +22,13 @@ public class UserDaoImp extends BaseDaoImp<User> implements UserDao {
 		}
 		return null;
 	}
- 
+	public void editPassword(String id, String password){
+		/*String hql = "update User u set u.password = ? where u.id = ?";
+		Object[] objects = {password,id};
+		System.out.println(objects[0]+"..."+objects[1]);
+		this.getHibernateTemplate().update(hql, objects);*/
+		User user = getHibernateTemplate().get(User.class, id);
+		user.setPassword(password);
+		getHibernateTemplate().update(user);
+	};
 }

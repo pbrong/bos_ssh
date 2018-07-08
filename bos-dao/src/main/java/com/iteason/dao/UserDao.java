@@ -11,5 +11,7 @@ public interface UserDao extends IBaseDao<User>{
 
 	User findUserByUsernameAndPassword(String username, String password);
 
+	void editPassword(String id, String password);
+
 
 }
