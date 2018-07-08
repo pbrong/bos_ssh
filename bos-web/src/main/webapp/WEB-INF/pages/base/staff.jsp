@@ -165,7 +165,7 @@
 		</div>
 		
 		<div region="center" style="overflow:auto;padding:5px;" border="false">
-			<form>
+			<form id="staffForm" method="post" action="${pageContext.request.contextPath}/staffAction_addStaff">
 				<table class="table-edit" width="80%" align="center">
 					<tr class="title">
 						<td colspan="2">收派员信息</td>
@@ -186,12 +186,28 @@
 						<td>
 						<script type="text/javascript">
 							$(function(){
+								//为保存按钮绑定事件
+								$("#save").click(function(){
+									var check = $("#staffForm").form("validate");
+									//alert(check);
+									if(check){
+										//验证通过，提交表单
+										$("#staffForm").submit();
+									}else{
+										//验证不通过
+										return false;
+									}
+									
+								});
+								
+								//手机号校验的正则表达式
+								var reg = /^1[3|4|5|7|8|9][0-9]{9}$/;
 								//自定义扩展的校验规则
 								$.extend($.fn.validatebox.defaults.rules, {
 									//规则名
 								    telephoneCheck: {
 										validator: function(value,param){
-											return false;
+											return reg.test(value);
 										},
 										message: '手机号输入错误'
 								    }
@@ -199,7 +215,7 @@
 							});
 						
 						</script>
-						<input type="text" name="telephone" class="easyui-validatebox" 
+						<input type="text" name="telephone"  class="easyui-validatebox" 
 							data-options="validType:'telephoneCheck'"
 						required="true"/></td>
 					

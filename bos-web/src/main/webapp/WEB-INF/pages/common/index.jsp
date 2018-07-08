@@ -90,7 +90,6 @@
 			var p1 = $("#txtNewPass").val();
 			var p2 = $("#txtRePass").val();
 			if( p1==p2){
-				alert("success");
 				//通过ajax提交参数
 				$.post(
 					"userAction_editPassword.action",
@@ -100,6 +99,11 @@
 						if(data == "1"){
 							//关闭窗口
 							$("#editPwdWindow").window("close");
+							$.messager.show({
+								title:"消息提示",
+								msg:'密码修改成功！',
+								timeout:3000
+							});
 						}else{
 							//弹出错误信息
 							$.messager.alert("提示信息","密码修改失败","error");
